@@ -37,61 +37,61 @@ class matchTracker:
 
         def winAction():
             ##update display ?
-            self.homeScore.set(this.homeScore.get() + 1)
-            self.streak.set(this.streak.get() + 1)
-            self.totalGames.set(this.totalGames.get() +1)
-            writeToFile(winFile, str(homeScore.get()))
-            writeToFile(streakFile, str(streak.get()))
+            self.homeScore.set(self.homeScore.get() + 1)
+            self.streak.set(self.streak.get() + 1)
+            self.totalGames.set(self.totalGames.get() +1)
+            writeToFile(winFile, str(self.homeScore.get()))
+            writeToFile(streakFile, str(self.streak.get()))
             self.streakCheck()
 
         def loseAction():
-            self.awayScore
-            self.totalGames+=1
-            self.streak = 0
-            writeToFile(loseFile, str(awayScore))
-            writeToFile(streakFile, str(streak))
+            self.awayScore.set(self.awayScore.get() + 1))
+            self.totalGames.set(self.totalGames.get() + 1)
+            self.streak.set(0)
+            writeToFile(loseFile, str(self.awayScore.get()))
+            writeToFile(streakFile, str(self.streak.get()))
 
         def drawAction():
-            self.awayScore +=0.5
-            self.homeScore +=0.5
-            self.totalGames +=1
-            self.streak = 0
+            self.awayScore.set(self.awayScore.get() + 0.5)
+            self.homeScore.set(self.homeScore.get()  + 0.5)
+            self.totalGames.set(self.homeScore.get() + 0.5)
+            self.streak.set(0). 
 
-            writeToFile(streakFile, str(streak))
-            writeToFile(loseFile, str(awayScore))
-            writeToFile(winFile, str(homeScore))
+            writeToFile(streakFile, str(self.streak.get()))
+            writeToFile(loseFile, str(self.awayScore.get()))
+            writeToFile(winFile, str(self.homeScore.get()))
 
         
         def resetScores():
-            self.awayScore = 0
-            self.homeScore = 0
-            self.streak = 0
-            self.totalGames = 0
-            writeToFile(loseFile, str(awayScore))
-            writeToFile(winFile, str(homeScore))
-            writeToFile(streakFile, str(streak))
+            self.awayScore.set(0)
+            self.homeScore.set(0)
+            self.streak.set(0)
+            self.totalGames.set(0)
+            writeToFile(loseFile, str(self.awayScore.get()))
+            writeToFile(winFile, str(self.homeScore.get()))
+            writeToFile(streakFile, str(self.streak.get()))
             
 
         def newMatch():
             resetScores()
-            self.nameOne = ""
-            self.nameTwo = ""
-            writeToFile(nameOneFile, nameOne)
-            writeToFile(nameTwoFile, nameTwo)
+            self.nameOne.set("")
+            self.nameTwo.set("")
+            writeToFile(nameOneFile, nameOne.get())
+            writeToFile(nameTwoFile, nameTwo.get())
 
         def hideFile(fileName):
             writeToFile(fileName, "")
 
         def updateNameOne(newName):
-            self.nameOne = newName
-            writeToFile(nameOneFile, nameOne)
+            self.nameOne.set(newName)
+            writeToFile(nameOneFile, nameOne.get())
 
         def updateNameTwo(newName):
-            self.nameTwo = newName
-            writeToFile(nameTwoFile, nameTwo)
+            self.nameTwo.set(newName)
+            writeToFile(nameTwoFile, nameTwo.get())
         
         def streakCheck():
-            if streak >= 10:
+            if streak.get() >= 10:
                 writeToFile(adoptionFile, "Adoption.")
             
         
