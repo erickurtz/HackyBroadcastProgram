@@ -183,7 +183,7 @@ class ChessComMatchTracker:
             
             
 def main():
-    url = "https://www.chess.com/games/archive?username=hikaru"
+    url = "https://www.chess.com/games/archive/hikaru"
     parser = PlayerTracker()
     game1 = Game (parser.getLatestGameFromURL(url))
     print (str(game1))

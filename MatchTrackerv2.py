@@ -4,6 +4,7 @@ class MatchTracker:
     def __init__(self, master):
         self.winFile = "wins.txt"
         self.loseFile = "losses.txt"
+        self.drawFile = "draws.txt" 
         self.streakFile = "streak.txt"
         self.nameOneFile = "name1.txt"
         self.nameTwoFile = "name2.txt"
@@ -14,6 +15,7 @@ class MatchTracker:
 
         self.homeScore = Tk.DoubleVar()
         self.awayScore = Tk.DoubleVar()
+        self.numDraws = Tk.IntVar()
         self.totalGames = Tk.IntVar()
         self.streak = Tk.IntVar()
 
@@ -21,6 +23,7 @@ class MatchTracker:
         self.homeScore.set(0.0)
         self.awayScore.set(0.0)
         self.totalGames.set(0)
+        self.numDraws.set(0)
         self.streak.set(0)
         self.nameOne = Tk.StringVar()
         self.nameTwo = Tk.StringVar()
@@ -96,11 +99,13 @@ class MatchTracker:
         self.awayScore.set(self.awayScore.get() + 0.5)
         self.homeScore.set(self.homeScore.get()  + 0.5)
         self.totalGames.set(self.homeScore.get() + 0.5)
+        self.numDraws.set(self.numDraws.get() + 1)
         self.streak.set(0)
 
         self.writeToFile(self.streakFile, str(self.streak.get()))
         self.writeToFile(self.loseFile, str(self.awayScore.get()))
         self.writeToFile(self.winFile, str(self.homeScore.get()))
+        self.writeToFile(self.drawFile, str(self.numDraws.get()))
         
         
     def resetScores(self):
